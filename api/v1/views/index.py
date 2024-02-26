@@ -12,3 +12,12 @@ from models import storage
 def status():
     """create a route /status on the object app_views"""
     return jsonify({'status': 'OK'})
+
+
+@app_views.route('/stats', methods=['GET'])
+def count():
+    """ an endpoint that retrieves the number of each objects by type"""
+    dic = {}
+    for i in classes:
+        dic[i] = storage.count(classes[i])
+    return jsonify(dic)
