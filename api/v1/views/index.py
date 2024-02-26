@@ -17,9 +17,9 @@ def status():
 @app_views.route('/stats', methods=['GET'])
 def count():
     """ an endpoint that retrieves the number of each objects by type"""
-    classes = {'states': State, 'users': User,
-            'amenities': Amenity, 'cities': City,
-            'places': Place, 'reviews': Review}
+    classes = {"states": "State", "users": "User",
+               "amenities": "Amenity", "cities": "City",
+               "places": "Place", "reviews": "Review"}
     dic = {}
     for i in classes:
         dic[i] = storage.count(classes[i])
