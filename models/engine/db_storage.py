@@ -77,14 +77,15 @@ class DBStorage:
 
     def get(self, cls, id):
         """A method to retrieve one object """
-        if cls and id:
-            tempo = cls, __name__ + "." + id
-            count = self.all(cls)
-            for key in count:
-                if key == tempo:
-                    return count[key]
-        else:
+        if cls not in classes.values():
             return None
+
+        all_cls = models.storage.all(cls)
+        for value in all_cls.values():
+            if (value.id == id):
+                return value
+
+        return None
 
     def count(self, cls=None):
         """A method to count the number of objects in storage"""
