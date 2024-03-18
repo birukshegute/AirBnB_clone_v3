@@ -1,5 +1,7 @@
 #!/usr/bin/python3
-"""Creating a new view for State objects"""
+"""
+Creating a new view for State objects
+"""
 
 from api.v1.views import app_views
 from flask import jsonify, abort, request
